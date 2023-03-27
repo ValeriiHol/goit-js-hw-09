@@ -92,5 +92,7 @@ function convertMs(ms) {
 }
 
 
-const addLeadingZero = value => String(value).padStart(2, 0);
+function addLeadingZero(value) {
+  return String(value).padStart(2, '0');
+};
   
