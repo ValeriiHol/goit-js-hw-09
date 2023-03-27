@@ -91,5 +91,6 @@ function convertMs(ms) {
     refs.secs.textContent = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));  
 }
 
+
 const addLeadingZero = value => String(value).padStart(2, 0);
   
