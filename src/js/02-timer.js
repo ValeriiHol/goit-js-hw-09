@@ -82,16 +82,14 @@ function convertMs(ms) {
     const day = hour * 24;
   
     // Remaining days
-    refs.days.textContent = addLeadingZero(Math.floor(ms / day));
+    refs.days.textContent = Math.floor(ms / day);
     // Remaining hours
-    refs.hours.textContent = addLeadingZero(Math.floor((ms % day) / hour));
+    refs.hours.textContent = Math.floor((ms % day) / hour);
     // Remaining minutes
-    refs.mins.textContent = addLeadingZero(Math.floor(((ms % day) % hour) / minute));
+    refs.mins.textContent = Math.floor(((ms % day) % hour) / minute);
     // Remaining seconds
-    refs.secs.textContent = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));  
+    refs.secs.textContent = Math.floor((((ms % day) % hour) % minute) / second);  
 }
 
-function addLeadingZero(value) {
-  return String(value).padStart(2, '0');
-}
+// const addLeadingZero = value => String(value).padStart(2, 0);
   
