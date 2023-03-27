@@ -59,7 +59,7 @@ function onInputChange(e) {
   };
 
 function timerSet() {
-    timerId = setInterval(() => {
+    const timerId = setInterval(() => {
       console.log(`====timerSet========`);
       refs.startBtn.disabled = true;
       const time = selectedDate - Date.now();
