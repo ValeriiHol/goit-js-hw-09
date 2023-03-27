@@ -60,13 +60,10 @@ function onInputChange(e) {
 
 function timerSet() {
     const timerId = setInterval(() => {
-      // console.log(`====timerSet========`);
       refs.startBtn.disabled = true;
       const time = selectedDate - Date.now();
-      console.log(time);
-
-      if (time <= 0) {
-        // console.log(time);
+      // console.log(time);
+      if (time <= 0) {      
         clearInterval(timerId);
         return;
       }
