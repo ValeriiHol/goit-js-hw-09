@@ -59,11 +59,19 @@ function onInputChange(e) {
   };
 
 function timerSet() {
-    setInterval(() => {
+    timerId = setInterval(() => {
+      console.log(`====timerSet========`);
       refs.startBtn.disabled = true;
       const time = selectedDate - Date.now();
+      console.log(time);
+
+      if (time <= 0) {
+        console.log(time);
+        clearInterval(timerId);
+        return;
+      }
       convertMs(time);
-    }, 1000)
+    }, 1000);
   };
 
 function convertMs(ms) {
@@ -74,12 +82,16 @@ function convertMs(ms) {
     const day = hour * 24;
   
     // Remaining days
-    refs.days.textContent = Math.floor(ms / day);
+    refs.days.textContent = addLeadingZero(Math.floor(ms / day));
     // Remaining hours
-    refs.hours.textContent = Math.floor((ms % day) / hour);
+    refs.hours.textContent = addLeadingZero(Math.floor((ms % day) / hour));
     // Remaining minutes
-    refs.mins.textContent = Math.floor(((ms % day) % hour) / minute);
+    refs.mins.textContent = addLeadingZero(Math.floor(((ms % day) % hour) / minute));
     // Remaining seconds
-    refs.secs.textContent = Math.floor((((ms % day) % hour) % minute) / second);  
+    refs.secs.textContent = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));  
+}
+
+function addLeadingZero(value) {
+  return String(value).padStart(2, '0');
 }
   
